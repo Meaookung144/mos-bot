@@ -180,8 +180,8 @@ const commands = [
 
       return [
         amount > 1000
-          ? "https://media.discordapp.net/attachments/997118315459788891/997118557034909786/Payment.png"
-          : "https://media.discordapp.net/attachments/874088215798226944/1033671238792515634/payment11-scb.png",
+          ? "https://media.discordapp.net/attachments/874088215798226944/1231640470174564412/payment13-scb-poom.png?ex=69d3dd12&is=69d28b92&hm=dcbaac89531dd5792539b9f90394424124480c751f08008a26a6e100c70b5371&=&format=webp&quality=lossless&width=2106&height=1316"
+          : "https://media.discordapp.net/attachments/874088215798226944/1231640470174564412/payment13-scb-poom.png?ex=69d3dd12&is=69d28b92&hm=dcbaac89531dd5792539b9f90394424124480c751f08008a26a6e100c70b5371&=&format=webp&quality=lossless&width=2106&height=1316",
         `หากท่านโอนเงินผ่าน ทรูมั่นนี่วอลเล็ทกรุณาโอนเงินมากกว่าหรือเท่ากับ ${fee} บาท\n\n(แต่หากท่านโอนผ่านช่องทางอื่นเช่น ธนาคาร สแกน QR Prompt pay ผ่านทรูมั่นนี่วอลเล็ท / ธนาคาร ท่านสามารถชำระเงินจำนวน ${amount} บาทได้เลยไม่ต้องชำระค่าธรรมเนียม)\n\n<:incorrectnonotnotcheck:916913350041026610> ไม่รับซองของขวัญ Aungpao\n<a:bc7:855859841951465492>  ไม่มีนโยบายการคืนเงินกรุณาตรวจสอบก่อนการชำระเงิน`
       ];
     }

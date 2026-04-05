@@ -2,11 +2,14 @@ services:
   mos-bot:
     image: ${GHCR_IMAGE:-ghcr.io/meaookung144/mos-bot:latest}
     restart: unless-stopped
-    env_file:
-      - .env
     environment:
+      DISCORD_TOKEN: ${DISCORD_TOKEN:?DISCORD_TOKEN is required}
+      OWNER_ID: ${OWNER_ID:?OWNER_ID is required}
+      DEFAULT_PREFIX: ${DEFAULT_PREFIX:-.}
       DATABASE_PATH: ${DATABASE_PATH:-/data/bot.sqlite}
       NODE_ENV: ${NODE_ENV:-production}
+      SYNC_COMMANDS_ON_STARTUP: ${SYNC_COMMANDS_ON_STARTUP:-true}
+      DISCORD_GUILD_ID: ${DISCORD_GUILD_ID:-}
     volumes:
       - bot-data:/data
 

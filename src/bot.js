@@ -19,6 +19,7 @@ function createPrefixContext({ message, args, config, store, client }) {
     guildId: message.guild?.id || null,
     message,
     args,
+    rawArgsText: args.join(" "),
     memberPermissions: message.member?.permissions,
     user: message.author
   };

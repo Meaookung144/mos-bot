@@ -44,7 +44,10 @@ const commands = [
       }
     ],
     async execute(context) {
-      const code = parseText(context, "code", 0, "Put something to Evaluate.");
+      const code =
+        context.type === "prefix"
+          ? ensureValue(context.rawArgsText, "Put something to Evaluate.")
+          : parseText(context, "code", 0, "Put something to Evaluate.");
       if (String(code).toLowerCase().includes("token")) {
         return "no token for u.";
       }
@@ -282,7 +285,10 @@ const commands = [
       }
     ],
     async execute(context) {
-      const duration = parseText(context, "duration", 0, "Please provide the expected duration.");
+      const duration =
+        context.type === "prefix"
+          ? ensureValue(context.rawArgsText, "Please provide the expected duration.")
+          : parseText(context, "duration", 0, "Please provide the expected duration.");
       return `↷ ︶꒷₊˚ <:cashmoneycheck:916913842636865557> รับออเดอร์เรียบร้อยครับ ๑ ‧ ₊ *\n\n⊹₊꒷︶꒷ <a:wait:929921846512611368> โดยปกติสินค้าใช้เวลาจัดส่งไม่เกิน ${duration} ครับผม ꒷︶꒷꒦\n\n༺ ⋆ 𓈒 ♱ ขอบคุณที่ใช้บริการ P5 SHOP คร้าบ ♱ 𓈒 ⋆ ༻`;
     }
   }),
@@ -313,7 +319,10 @@ const commands = [
         return "This command can only be used in a server.";
       }
 
-      const nextPrefix = readOption(context, "value", 0);
+      const nextPrefix =
+        context.type === "prefix"
+          ? context.rawArgsText?.trim() || null
+          : readOption(context, "value", 0);
       if (!nextPrefix) {
         const currentPrefix = context.store.getPrefix(context.guildId);
         return `Current prefix: \`${currentPrefix}\``;

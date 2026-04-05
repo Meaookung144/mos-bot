@@ -11,9 +11,14 @@ const permissionErrors = {
 };
 
 function sanitizeEvalOutput(text, config) {
-  return String(text)
-    .replaceAll(config.discordToken, "[REDACTED_TOKEN]")
-    .replaceAll(process.env.DISCORD_TOKEN || "", "[REDACTED_TOKEN]");
+  let output = String(text);
+  const secrets = [config.discordToken, process.env.DISCORD_TOKEN].filter(Boolean);
+
+  for (const secret of secrets) {
+    output = output.replaceAll(secret, "[REDACTED_TOKEN]");
+  }
+
+  return output;
 }
 
 function formatCodeBlock(label, value) {
@@ -94,8 +99,8 @@ function buildEvalEmbed({ code, output, title, footer }) {
       new EmbedBuilder()
         .setTitle(title)
         .addFields(
-          { name: "Input", value: formatCodeBlock("js", code) },
-          { name: "Output", value: formatCodeBlock("txt", output) }
+          { name: "Input", value: formatCodeBlock("js", code).slice(0, 1024) },
+          { name: "Output", value: formatCodeBlock("txt", output).slice(0, 1024) }
         )
         .setFooter({ text: footer })
     ]

@@ -4,7 +4,7 @@ const { createBot } = require("../src/bot");
 async function main() {
   const bot = createBot();
 
-  bot.client.login(bot.config.discordToken);
+  await bot.client.login(bot.config.discordToken);
   await once(bot.client, "ready");
   await bot.syncCommands();
   console.log("Slash commands synchronized successfully.");

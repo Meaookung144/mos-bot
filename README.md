@@ -59,8 +59,16 @@ Komodo should deploy this service as a Docker Compose stack.
 1. Publish the image to GHCR using the included GitHub Actions workflow.
 2. In Komodo, create a stack from `compose.yaml`.
 3. Set `GHCR_IMAGE` if you want to override the default package name. By default this stack pulls `ghcr.io/meaookung144/mos-bot:latest`.
-4. Provide the same env vars shown in `.env.example`.
+4. In Komodo, define the runtime environment variables for the stack:
+   - `DISCORD_TOKEN`
+   - `OWNER_ID`
+   - `DEFAULT_PREFIX` if you want to override `.`
+   - `DATABASE_PATH` if you want to override `/data/bot.sqlite`
+   - `SYNC_COMMANDS_ON_STARTUP` if you want to disable command sync
+   - `DISCORD_GUILD_ID` if you want guild-scoped slash command registration
 5. Keep the `/data` volume so prefix settings persist across restarts.
+
+If you run Compose outside Komodo, you can still export those variables from your shell or load them from a local `.env` file before starting the stack.
 
 ## GitHub Actions and GHCR
 

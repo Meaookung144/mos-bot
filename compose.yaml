@@ -10,6 +10,7 @@ services:
       NODE_ENV: ${NODE_ENV:-production}
       SYNC_COMMANDS_ON_STARTUP: ${SYNC_COMMANDS_ON_STARTUP:-true}
       DISCORD_GUILD_ID: ${DISCORD_GUILD_ID:-}
+      ENABLE_PREFIX_COMMANDS: ${ENABLE_PREFIX_COMMANDS:-true}
     volumes:
       - bot-data:/data
 

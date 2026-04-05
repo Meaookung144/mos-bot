@@ -43,13 +43,17 @@ function createBot() {
   const config = loadConfig();
   const store = new PrefixStore(config.databasePath, config.defaultPrefix);
   const registry = createRegistry();
+  const intents = [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages
+  ];
+
+  if (config.enablePrefixCommands) {
+    intents.push(GatewayIntentBits.MessageContent);
+  }
 
   const client = new Client({
-    intents: [
-      GatewayIntentBits.Guilds,
-      GatewayIntentBits.GuildMessages,
-      GatewayIntentBits.MessageContent
-    ]
+    intents
   });
 
   client.on(Events.ClientReady, async (readyClient) => {

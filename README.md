@@ -37,6 +37,7 @@ Useful scripts:
 - `NODE_ENV`: `development` or `production`
 - `SYNC_COMMANDS_ON_STARTUP`: set to `false` to skip startup command sync
 - `DISCORD_GUILD_ID`: optional guild ID to register slash commands to one guild for fast updates
+- `ENABLE_PREFIX_COMMANDS`: set to `false` if you only want slash commands and do not want to enable the Message Content privileged intent
 
 ## Docker
 
@@ -66,6 +67,7 @@ Komodo should deploy this service as a Docker Compose stack.
    - `DATABASE_PATH` if you want to override `/data/bot.sqlite`
    - `SYNC_COMMANDS_ON_STARTUP` if you want to disable command sync
    - `DISCORD_GUILD_ID` if you want guild-scoped slash command registration
+   - `ENABLE_PREFIX_COMMANDS=false` if you do not want to enable Discord's Message Content intent
 5. Keep the `/data` volume so prefix settings persist across restarts.
 
 If you run Compose outside Komodo, you can still export those variables from your shell or load them from a local `.env` file before starting the stack.

@@ -53,7 +53,8 @@ function loadConfig() {
     databasePath: process.env.DATABASE_PATH || path.resolve(process.cwd(), "data", "bot.sqlite"),
     nodeEnv: process.env.NODE_ENV || "development",
     syncCommandsOnStartup: parseBoolean(process.env.SYNC_COMMANDS_ON_STARTUP, true),
-    guildId: process.env.DISCORD_GUILD_ID || null
+    guildId: process.env.DISCORD_GUILD_ID || null,
+    enablePrefixCommands: parseBoolean(process.env.ENABLE_PREFIX_COMMANDS, true)
   };
 }
 

@@ -1,6 +1,6 @@
 services:
   mos-bot:
-    image: ${GHCR_IMAGE:-ghcr.io/owner/repo:latest}
+    image: ${GHCR_IMAGE:-ghcr.io/meaookung144/mos-bot:latest}
     restart: unless-stopped
     env_file:
       - .env

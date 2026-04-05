@@ -58,7 +58,7 @@ Komodo should deploy this service as a Docker Compose stack.
 
 1. Publish the image to GHCR using the included GitHub Actions workflow.
 2. In Komodo, create a stack from `compose.yaml`.
-3. Set `GHCR_IMAGE` to your final package name, for example `ghcr.io/<owner>/<repo>:latest`.
+3. Set `GHCR_IMAGE` if you want to override the default package name. By default this stack pulls `ghcr.io/meaookung144/mos-bot:latest`.
 4. Provide the same env vars shown in `.env.example`.
 5. Keep the `/data` volume so prefix settings persist across restarts.
 
